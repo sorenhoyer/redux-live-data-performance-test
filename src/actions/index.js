@@ -1,4 +1,8 @@
-export const addDatapoint = (point) => ({
-  type: 'ADD_DATAPOINT',
-  datapoint: point,
+export const init = () => ({
+  type: 'INIT',
+})
+
+export const addMeasurement = (datapoint) => ({
+  type: 'ADD_MEASUREMENT',
+  datapoint: datapoint
 })
