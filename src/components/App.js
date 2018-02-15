@@ -31,7 +31,7 @@ export default connect(mapStateToProps)(class App extends React.Component {
     }, 1000);
   }
   render(){
-    const datapoints = this.props.datapoints ? cloneDeep(this.props.datapoints) : {};
+    const datapoints = this.props.datapoints;
 
     const plotOptions = {
       series: {
@@ -53,7 +53,7 @@ export default connect(mapStateToProps)(class App extends React.Component {
             subtitle=''
             xAxisTitle='Time'
             yAxisTitle='Level'
-            data={datapoints[key]} // maybe use env to set cycles differently for node / production for increased performance
+            data={datapoints[key].slice()}
             overlayCharts={[]}
             plotOptions={plotOptions}
           />
