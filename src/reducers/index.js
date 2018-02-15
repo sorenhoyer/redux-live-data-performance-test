@@ -1,15 +1,9 @@
-// import Heap from '../models/Heap';
-// import Queue from '../models/Queue';
-// import { customCompareMin, customCompareMax } from '../models/Heap';
-
 import Sensor from '../models/Sensor';
-
-
-const sensorsArr = ['sensor1', 'sensor2', 'sensor3','sensor4', 'sensor5', 'sensor6','sensor7', 'sensor8', 'sensor9', 'sensor10']
 
 export default (state = {}, action) => {
   switch (action.type) {
     case 'INIT': {
+      const sensorsArr = ['sensor1', 'sensor2', 'sensor3','sensor4', 'sensor5', 'sensor6','sensor7', 'sensor8', 'sensor9', 'sensor10']
       let sensors = {}
       for(let sensor of sensorsArr) {
         sensors[sensor] = new Sensor(2000);
@@ -19,9 +13,7 @@ export default (state = {}, action) => {
     case 'ADD_MEASUREMENT': {
       const keys = Object.keys(state);
 
-      // add new incoming timestamped device data to existing measurements
-      // never really gonna happen, since we set them by default in the INIT action above
-      if (keys.length === 0) {
+      if (keys.length === 0) { // never really gonna happen, since we already set them by default in the INIT action above
         for (const key in action.sensors) {
           // unimplemented for now
         }
